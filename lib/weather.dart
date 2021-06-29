@@ -47,7 +47,20 @@ class Weather extends StatelessWidget {
                 width: double.infinity,
               ),
               Container(
-                child: Text('Veyangoda'),
+                margin: EdgeInsets.fromLTRB(20.0, 0, 0, 0),
+                child: Column(
+                  children: [
+                    SizedBox(height: 150.0,),
+                    Text(
+                      'Veyangoda',
+                      style: TextStyle(
+                        fontSize: 40.0,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.white
+                      ),
+                    )
+                  ],
+                ),
                 )
             ],
           ),
