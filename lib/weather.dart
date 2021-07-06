@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -55,62 +56,62 @@ class Weather extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Column(
-
-                        children: [
-                          SizedBox(height: 120.0),
-                          Text('Veyangoda',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40.0,
-                              color: Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: 5.0,),
-                          Text(
-                            '07:33 PM - Tuesday, 06 Jul 2021',
-                            style: TextStyle(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('24\u2103',
+                        SizedBox(height: 120.0),
+                        Text('Veyangoda',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 50.0,
+                            fontSize: 40.0,
                             color: Colors.white,
                           ),
                         ),
-                        Row(
+                        SizedBox(height: 5.0,),
+                        Text(
+                          '07:33 PM - Tuesday, 06 Jul 2021',
+                          style: TextStyle(
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            SvgPicture.asset(
-                              'svg/icons8-menu.svg',
-                              width: 34.0,
-                              height: 34.0,
-                              color: Colors.white,
-                            ),
-                            SizedBox(width: 10.0,),
-                            Text(
-                              'Hello',
-                              style: TextStyle(
-                                fontSize: 23.0,
-                                color: Colors.white,
-                              ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('24\u2103',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 50.0,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    SvgPicture.asset(
+                                      'svg/icons8-menu.svg',
+                                      width: 34.0,
+                                      height: 34.0,
+                                      color: Colors.white,
+                                    ),
+                                    SizedBox(width: 10.0,),
+                                    Text(
+                                      'Night',
+                                      style: TextStyle(
+                                        fontSize: 22.0,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                    Column(
-                      children: [
                         Container(
                           margin: EdgeInsets.symmetric(vertical: 40.0),
                           decoration: BoxDecoration(
@@ -121,24 +122,43 @@ class Weather extends StatelessWidget {
 
                         ),
 
-                        Text('Veyangoda',
+                        Column(
+                          children: [
+                            Text('Wind',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        Text(
+                          'km/h',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 40.0,
+                            fontSize: 15.0,
                             color: Colors.white,
                           ),
                         ),
-                        Text(
-                          'Hello',
-                          style: TextStyle(
-                            fontSize: 23.0,
-                            color: Colors.white,
-                          ),
+                        Stack(
+                          children: [
+                            Container(
+                              height: 5.0,
+                              width: 50.0,
+                              color: Colors.white54,
+                            ),
+                            Container(
+                              height: 5.0,
+                              width: 5.0,
+                              color: Colors.greenAccent,
+                            )
+                          ],
                         )
                       ],
-                    )
-                  ],
 
+                    ),
+                  ],
                 ),
 
               )
