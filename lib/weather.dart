@@ -1,12 +1,40 @@
+//import 'dart:html';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:weather_application/model/wLocation.dart';
 import 'package:weather_application/widgets/single_weather.dart';
+import 'package:weather_application/widgets/slider.dart';
 
-class Weather extends StatelessWidget {
-  const Weather({Key? key}) : super(key: key);
 
+class Weather extends StatefulWidget {
+  @override
+  _WeatherState createState() => _WeatherState();
+}
+
+class _WeatherState extends State<Weather> {
+  int presentPage = 0;
+  late String bgImg;
+
+  onPageChanged(int index) {
+    setState(() {
+      presentPage = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
+    if(locationList[presentPage].weatherType=='sunny'){
+      bgImg='images/weather2.jpg';
+    }
+    else if(locationList[presentPage].weatherType=='cloudy'){
+      bgImg='images/weather2.jpg';
+    }
+    else if(locationList[presentPage].weatherType=='sunny'){
+      bgImg='images/weather2.jpg';
+    }
+    else if(locationList[presentPage].weatherType=='sunny'){
+      bgImg='images/weather2.jpg';
+    }
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -42,7 +70,7 @@ class Weather extends StatelessWidget {
         child: Stack(
             children: [
               Image.asset(
-                'images/weather2.jpg',
+                bgImg,
                 fit: BoxFit.cover,
                 height: double.infinity,
                 width: double.infinity,
@@ -50,7 +78,24 @@ class Weather extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(color: Colors.black38),
               ),
-             SingleWeather(),
+             Container(
+               margin: EdgeInsets.only(top: 150.0, left: 15.0),
+               child: Row(
+                 children: [
+                   for(int i=0; i<locationList.length;i++)
+                     if(i==presentPage)
+                       SliderFile(true)
+                   else
+                     SliderFile(false)
+                 ],
+               ),
+             ),
+
+              PageView.builder(
+                  scrollDirection: Axis.horizontal,
+                  onPageChanged: onPageChanged,
+                  itemCount: locationList.length,
+                  itemBuilder: (ctx,i) =>SingleWeather(i)),
             ]
 
         ),
