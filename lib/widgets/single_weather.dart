@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:weather_application/model/wLocation.dart';
 
 class SingleWeather extends StatelessWidget {
-  const SingleWeather({Key? key}) : super(key: key);
+
+  final int index;
+  SingleWeather(this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class SingleWeather extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 100.0,),
-                Text('Veyangoda',
+                Text(locationList[index].city,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 40.0,
@@ -26,7 +29,7 @@ class SingleWeather extends StatelessWidget {
                 ),
                 SizedBox(height: 5.0),
                 Text(
-                  '07:33 PM - Tuesday, 06 Jul 2021',
+                  locationList[index].dateTime,
                   style: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
@@ -43,7 +46,7 @@ class SingleWeather extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('24\u2103',
+                  Text(locationList[index].temparature,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 50.0,
@@ -54,14 +57,14 @@ class SingleWeather extends StatelessWidget {
                     children: [
                       SizedBox(height: 5,),
                       SvgPicture.asset(
-                        'svg/icons8-menu.svg',
+                        locationList[index].iconUrl,
                         width: 34.0,
                         height: 34.0,
                         color: Colors.white,
                       ),
                       SizedBox(width: 10.0,),
                       Text(
-                        'Night',
+                        locationList[index].weatherType,
                         style: TextStyle(
                           fontSize: 22.0,
                           color: Colors.white,
@@ -96,7 +99,7 @@ class SingleWeather extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        Text('10',
+                        Text(locationList[index].wind.toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20.0,
@@ -137,7 +140,7 @@ class SingleWeather extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        Text('02',
+                        Text(locationList[index].rain.toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20.0,
@@ -178,7 +181,7 @@ class SingleWeather extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        Text('10',
+                        Text(locationList[index].humidity.toString(),
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20.0,
